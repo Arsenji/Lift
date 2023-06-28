@@ -32,13 +32,15 @@
             <li><a href="#" data-price="100000">Центральная панель</a></li>
             <li><a href="#" data-price="150000">Потолок подвесной</a></li>
             <li><a href="#" data-price="123567">Подвес для ПСБ</a></li>
-            <li><a href="#" data-price="1">Потолок подвесной</a></li>
+            <li><a href="#" data-price="1">Потолок подвесной2</a></li>
         </ul>
         <button class="prev-button">Назад</button>
         <button class="next-button">Далее</button>
     </div>
     <div class="tab cost">
-        <h2>Готовая модель</h2>
+        <h2 class="ready" style="margin-top: 80px">Готовая модель</h2>
+        <h4 class="h4">Вы выбрали:</h4>
+        <div id="selection-output"></div>
         <button class="prev-button">Назад</button>
         <button class="order-button">Оформить заказ</button>
     </div>

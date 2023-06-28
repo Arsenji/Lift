@@ -48,19 +48,42 @@ $(document).ready(function() {
     $('.tab.walls .dropdown a').click(function(e) {
         e.preventDefault();
         selectedWall = $(this).text();
+        displaySelection();
     });
+
 
     $('.tab.ceiling .dropdown a').click(function(e) {
         e.preventDefault();
         selectedCeiling = $(this).text();
+        displaySelection();
     });
+
 
     function calculateTotalCost(wall, ceiling) {
         var wallCost = parseInt($('.tab.walls .dropdown a:contains("' + wall + '")').data('price'));
         var ceilingCost = parseInt($('.tab.ceiling .dropdown a:contains("' + ceiling + '")').data('price'));
-        var total = wallCost + ceilingCost;
-        return total;
+
+        if (isNaN(wallCost) || isNaN(ceilingCost)) {
+            return 0;
+        }
+
+        return totalCost = wallCost + ceilingCost;
     }
+    function displaySelection() {
+        var selectionText = "";
+        if (selectedWall !== null) {
+            selectionText += "Cтены цвета:\n" + selectedWall;
+        }
+        if (selectedCeiling !== null) {
+            selectionText += "Потолок:\n" + selectedCeiling;
+        }
+        totalCost = calculateTotalCost(selectedWall, selectedCeiling);
+        selectionText += " Общая стоимость:\n" + totalCost;
+
+        $("#selection-output").text(selectionText);
+    }
+    displaySelection();
+
 
     $('ul.dropdown li a').click(function() {
         $('ul.dropdown li a').removeClass('active');
@@ -98,4 +121,6 @@ $(document).ready(function() {
         $('.tab').removeClass('active');
         $('.tab[data-target="' + target + '"]').addClass('active');
     });
+
+
 });
